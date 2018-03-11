@@ -4,33 +4,44 @@ import PropTypes from "prop-types";
 
 export class Home extends React.Component{
 
+
+	constructor(props){
+		super();
+
+		this.state = {
+			age: props.initialAge	
+		} 
+	//	this.state.age = this.age;
+
+	}
+
+	onMakeOlder(){
+
+		//this.state.age++;
+		
+		this.setState({
+			age: this.state.age + 2
+		});
+
+
+
+		console.log(this.state.age);
+	}
+
 	render(){
 
 		var localVar = "Wow, i am a local var not inside  return"
 
-
 		return(
 			<div>			
-				<p> In a new Component</p>
-
 				<p>Name: {this.props.name}</p>
-				<p>Age: {this.props.age}</p>
+				<p>Age: {this.state.age}</p>
 
-				<p>user name:  {this.props.user.name}</p>
-				<p>user hobbies:  {this.props.user.hobbies.map((hobby, i) =>  <li key={i}>{hobby}</li> )}</p>
+				<button onClick={() => this.onMakeOlder()}>Make Me Older </button>
 
+				<button onClick={this.onMakeOlder.bind(this)}>Make Me Older2 </button>
 
-				<p> local var: {localVar}</p>
-				{this.props.children}
-
-				<br/>
-				<br/>
-				<br/>
-
-
-
-
-				
+			
 			</div>
 		);
 
