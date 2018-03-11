@@ -7,6 +7,9 @@ import { Header } from "./components/Header"
 import { Home } from "./components/Home"
 
 
+import { Component1 } from "./components/Component1"
+
+
  class App extends React.Component{
  	render() {
 
@@ -35,6 +38,14 @@ import { Home } from "./components/Home"
 			 			</Home>
 
  					</div>
+				</div>
+
+
+				<div>
+
+				Component 1
+				<Component1 />
+
 				</div>
 			</div>
 		);
