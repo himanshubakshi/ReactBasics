@@ -1,24 +1,24 @@
 import React from "react";
 
 
-export class Component1 extends React.Component{
+export const Component1 = (props) => {
 
-	render(){
+	//document.getElementById("submitButton").onClick
 
-		//document.getElementById("submitButton").onClick
+	return(
 
-		return(
+		<div>
+		
+			CP1
 
-			<div>
-			
-				CP1
+			<input type="text" id="myInput"> 
+			</input> 
 
-				<input type="text" id="myInput"> 
-				</input> 
 
-				<button id="submitButton">Submit</button>
+			<p>{props.testParam}</p>
+			<button id="submitButton">Submit</button>
 
-			</div>
-		);
-	}
+		</div>
+	);
+
 }

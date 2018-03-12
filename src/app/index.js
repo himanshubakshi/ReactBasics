@@ -40,6 +40,12 @@ import { Component1 } from "./components/Component1"
  					</div>
 				</div>
 
+				<br/>
+				<br/>
+				<br/>
+				<div>
+					<Component1 testParam="Hello World" />
+				</div>
 			</div>
 		);
  	}

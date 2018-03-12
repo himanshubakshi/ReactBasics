@@ -11,6 +11,12 @@ export class Home extends React.Component{
 		this.state = {
 			age: props.initialAge	
 		} 
+
+		setTimeout(() => {
+			this.setState({
+				status: 1
+			})
+		}, 2000)
 	//	this.state.age = this.age;
 
 	}
@@ -35,7 +41,9 @@ export class Home extends React.Component{
 		return(
 			<div>			
 				<p>Name: {this.props.name}</p>
-				<p>Age: {this.state.age}</p>
+				<p>Age: {this.state.age}</p>	
+				<p>Status: {this.state.status}</p> 
+
 
 				<button onClick={() => this.onMakeOlder()}>Make Me Older </button>
 
