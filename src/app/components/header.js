@@ -22,7 +22,7 @@ export class Header extends React.Component{
 			      <a className="navbar-brand" href="#">WebSiteName</a>
 			    </div>
 			    <ul className="nav navbar-nav">
-			      <li className="active"><a href="#">Home</a></li>
+			      <li className="active"><a href="#">{this.props.homeLink}</a></li>
 			      <li><a href="#">Page 1</a></li>
 			      <li><a href="#">Page 2</a></li>
 			      <li><a href="#">Page 3</a></li>

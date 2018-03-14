@@ -9,15 +9,17 @@ export class Home extends React.Component{
 		super();
 
 		this.state = {
-			age: props.initialAge	
+			age: props.initialAge,
+			status: 0,
+			homeLink: "New Home Link"
 		} 
 
-		setTimeout(() => {
-			this.setState({
-				status: 1
-			})
-		}, 2000)
-	//	this.state.age = this.age;
+	// 	setTimeout(() => {
+	// 		this.setState({
+	// 			status: 1
+	// 		})
+	// 	}, 2000)
+	// //	this.state.age = this.age;
 
 	}
 
@@ -32,6 +34,10 @@ export class Home extends React.Component{
 
 
 		console.log(this.state.age);
+	}
+
+	onChangeLink(){
+		this.props.changeLink(this.state.homeLink);
 	}
 
 	render(){
@@ -49,6 +55,7 @@ export class Home extends React.Component{
 
 				<button onClick={this.onMakeOlder.bind(this)}>Make Me Older2 </button>
 
+				<button onClick={this.onChangeLink.bind(this)}>Change Header Link</button>
 			
 			</div>
 		);
