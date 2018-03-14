@@ -12,6 +12,7 @@ export class Home extends React.Component{
 			age: props.initialAge,
 			status: 0,
 			homeLink: props.initialLinkName
+		
 		} 
 
 	// 	setTimeout(() => {
@@ -21,6 +22,37 @@ export class Home extends React.Component{
 	// 	}, 2000)
 	// //	this.state.age = this.age;
 
+	}
+
+
+	componentWillMount(){
+		console.log("componentWillMount");
+	}
+
+	componentDidMount(){
+		console.log("componentDidMount");
+	}
+
+	componentWillReceiveProps(newProps){
+		console.log("componentWillReceiveProps: received props: " + newProps);
+	}
+	
+	shouldComponentUpdate(newProps, newState){
+		console.log("shouldComponentUpdate received props: " + newProps  + ", new State: " + newState);
+
+		return true;
+	}
+
+	componentWillUpdate(newProps, newState){
+		console.log("componentWillUpdate received props: " + newProps  + ", new State: " + newState);
+	}
+
+	componentDidUpdate(prevProps, prevState){
+		console.log("componentDidUpdate received props: " + prevProps  + ", new State: " + prevState);
+	}
+
+	componentWillUnmount(){
+		console.log("componentWillUnmount");
 	}
 
 	onMakeOlder(){

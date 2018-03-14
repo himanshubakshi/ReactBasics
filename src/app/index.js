@@ -14,12 +14,20 @@ import { Component1 } from "./components/Component1"
  	
  
  	constructor(){
-
  		super();
+
  		this.state = {
- 			homeLink: "Home"
- 		}
+ 			homeLink: "Home",
+ 			homeMounted: true
+ 		};
  	}
+
+	onChangeHomeMounted(){
+		this.setState({
+			homeMounted: !this.state.homeMounted
+		});
+	}
+
 
 
 	showAlert()
@@ -31,7 +39,6 @@ import { Component1 } from "./components/Component1"
 		this.setState({
 			homeLink: newName
 		});
-
 	}
 
 
@@ -42,9 +49,27 @@ import { Component1 } from "./components/Component1"
  			name:"Bakshi",
  			hobbies: ["laughing", "loving", "living"]
  		};
+
+ 		let homeComp = "";
+
+		if(this.state.homeMounted){
+			homeComp = (
+							<Home 
+				 				name={"Himanshu"} 
+				 				initialAge={28} 
+				 				user={user} 
+				 				changeLink={this.onChangeLinkName.bind(this)}
+				 				initialLinkName={this.state.homeLink}>
+
+				 				<p id="childParagraph">This is a paragraph</p>
+				 				<p id="childParagraph2">This is a paragraph1</p>
+				 				<p id="childParagraph3">This is a paragraph2</p>
+
+				 			</Home>
+			 			);
+		}
+
  		return (
-
-
  			<div className="container">
  				<div className="row">
  					<div className="col-xs-10 col-xs-offset-1">
@@ -53,32 +78,19 @@ import { Component1 } from "./components/Component1"
 				</div>
 				<div className="row">
  					<div className="col-xs-10 col-xs-offset-1">
-			 			<Home 
-			 				name={"Himanshu"} 
-			 				initialAge={28} 
-			 				user={user} 
-			 				changeLink={this.onChangeLinkName.bind(this)}
-			 				initialLinkName={this.state.homeLink}>
-
-			 				<p id="childParagraph">This is a paragraph</p>
-			 				<p id="childParagraph2">This is a paragraph1</p>
-			 				<p id="childParagraph3">This is a paragraph2</p>
-
-			 			</Home>
-
+			 			{homeComp}
  					</div>
 				</div>
 
 				<br/>
 				<br/>
-				<br/>
 				<div>
-					<Component1 testParam="Hello World" showAlert={this.showAlert} />
+					<button onClick={this.onChangeHomeMounted.bind(this)}>(Un)mount Home Component</button>
 				</div>
 			</div>
 		);
  	}
- }
+ };
  
 
- render(<App />, window.document.getElementById("myApp"));
+render(<App/>, window.document.getElementById("myApp"));
