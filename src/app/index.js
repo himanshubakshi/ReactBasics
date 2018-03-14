@@ -11,12 +11,20 @@ import { Component1 } from "./components/Component1"
 
 
  class App extends React.Component{
+ 	
+
+	showAlert()
+	{
+		alert('parent function method from child component');
+	}
+
  	render() {
 
  		var user = {
  			name:"Bakshi",
  			hobbies: ["laughing", "loving", "living"]
  		};
+
 
 
  		return (
@@ -44,7 +52,7 @@ import { Component1 } from "./components/Component1"
 				<br/>
 				<br/>
 				<div>
-					<Component1 testParam="Hello World" />
+					<Component1 testParam="Hello World" showAlert={this.showAlert} />
 				</div>
 			</div>
 		);

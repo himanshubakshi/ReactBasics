@@ -1,5 +1,6 @@
 import React from "react";
 
+import PropTypes from "prop-types";
 
 export const Component1 = (props) => {
 
@@ -16,9 +17,9 @@ export const Component1 = (props) => {
 
 
 			<p>{props.testParam}</p>
-			<button id="submitButton">Submit</button>
+			<button id="submitButton" onClick={props.showAlert}>Submit</button>
 
 		</div>
 	);
 
-}
+};
