@@ -15,12 +15,12 @@ export class Home extends React.Component{
 		
 		} 
 
-	// 	setTimeout(() => {
-	// 		this.setState({
-	// 			status: 1
-	// 		})
-	// 	}, 2000)
-	// //	this.state.age = this.age;
+		setTimeout(() => {
+			this.setState({
+				status: 1
+			})
+		}, 2000)
+	//	this.state.age = this.age;
 
 	}
 
@@ -34,21 +34,27 @@ export class Home extends React.Component{
 	}
 
 	componentWillReceiveProps(newProps){
-		console.log("componentWillReceiveProps: received props: " + newProps);
+		console.log("componentWillReceiveProps: received props: ", newProps);
 	}
 	
 	shouldComponentUpdate(newProps, newState){
-		console.log("shouldComponentUpdate received props: " + newProps  + ", new State: " + newState);
+		console.log("shouldComponentUpdate received props and state ",  newProps, newState);
+
+		if(newState.status === 1){
+						console.log('block UI update');
+
+			return false;
+		}
 
 		return true;
 	}
 
 	componentWillUpdate(newProps, newState){
-		console.log("componentWillUpdate received props: " + newProps  + ", new State: " + newState);
+		console.log("componentWillUpdate received new props and newstate:", newProps ,newState);
 	}
 
 	componentDidUpdate(prevProps, prevState){
-		console.log("componentDidUpdate received props: " + prevProps  + ", new State: " + prevState);
+		console.log("componentDidUpdate prevProps, prevState: ", prevProps,prevState);
 	}
 
 	componentWillUnmount(){
