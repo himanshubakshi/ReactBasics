@@ -11,7 +11,7 @@ export class Home extends React.Component{
 		this.state = {
 			age: props.initialAge,
 			status: 0,
-			homeLink: "New Home Link"
+			homeLink: props.initialLinkName
 		} 
 
 	// 	setTimeout(() => {
@@ -40,6 +40,13 @@ export class Home extends React.Component{
 		this.props.changeLink(this.state.homeLink);
 	}
 
+	onHandleChange(event){
+
+		this.setState({
+			homeLink: event.target.value
+		});
+	}
+
 	render(){
 
 		var localVar = "Wow, i am a local var not inside  return"
@@ -54,7 +61,13 @@ export class Home extends React.Component{
 				<button onClick={() => this.onMakeOlder()}>Make Me Older </button>
 
 				<button onClick={this.onMakeOlder.bind(this)}>Make Me Older2 </button>
-
+				
+				<br/>
+				<br/>
+				
+				<input type="text" 
+						value={this.state.homeLink}
+				 		onChange={(event) => this.onHandleChange(event)} />
 				<button onClick={this.onChangeLink.bind(this)}>Change Header Link</button>
 			
 			</div>
@@ -68,5 +81,6 @@ Home.propTypes = {
 	name: PropTypes.string, 
 	age:  PropTypes.number, 
 	user: PropTypes.object,
-	children: PropTypes.element.isRequired
+	children: PropTypes.element.isRequired,
+	initialLinkName: PropTypes.string
 }

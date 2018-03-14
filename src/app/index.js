@@ -57,7 +57,8 @@ import { Component1 } from "./components/Component1"
 			 				name={"Himanshu"} 
 			 				initialAge={28} 
 			 				user={user} 
-			 				changeLink={this.onChangeLinkName.bind(this)}>
+			 				changeLink={this.onChangeLinkName.bind(this)}
+			 				initialLinkName={this.state.homeLink}>
 
 			 				<p id="childParagraph">This is a paragraph</p>
 			 				<p id="childParagraph2">This is a paragraph1</p>
