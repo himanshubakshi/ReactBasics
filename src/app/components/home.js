@@ -39,13 +39,6 @@ export class Home extends React.Component{
 	
 	shouldComponentUpdate(newProps, newState){
 		console.log("shouldComponentUpdate received props and state ",  newProps, newState);
-
-		if(newState.status === 1){
-						console.log('block UI update');
-
-			return false;
-		}
-
 		return true;
 	}
 
