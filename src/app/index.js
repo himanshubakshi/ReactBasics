@@ -2,9 +2,14 @@ console.log("Yay, the setup works!!")
 
 import React from "react";
 import { render } from "react-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+
 
 import { Header } from "./components/Header"
 import { Home } from "./components/Home"
+
+import { Root } from "./components/Root"
+import { User } from "./components/User"
 
 
 import { Component1 } from "./components/Component1"
@@ -93,4 +98,29 @@ import { Component1 } from "./components/Component1"
  };
  
 
-render(<App/>, window.document.getElementById("myApp"));
+ class RoutedApp extends React.Component{
+
+ 	render(){
+
+ 		return(
+ 				<BrowserRouter>
+ 					<div>
+
+	 					<Switch>
+	 						<Route path="/" component={Home} />
+		 					<Route path="/root/" component={Root} />
+		 					<Route path="/user/" component={User} />
+
+		 				</Switch>
+	 				</div>
+ 				</BrowserRouter>
+
+ 			);
+ 	}
+ };
+
+
+
+//render(<App/>, window.document.getElementById("myApp"));
+render(<RoutedApp/>, window.document.getElementById("myApp"));
+
